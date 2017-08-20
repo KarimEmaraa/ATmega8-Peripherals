@@ -45,11 +45,7 @@ void uart_init(void)
 }
 
 uint8_t uart_send(uint8_t data)
-{
-	#if FRAME_SIZE || TX_EN == 0
-		return -1;
-	#endif
-	
+{	
 	//Wait for buffer to be empty
 	while (!(UCSR0A & (1<<UDRE0)));
 	
